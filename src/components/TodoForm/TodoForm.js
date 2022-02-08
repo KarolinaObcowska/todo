@@ -34,7 +34,11 @@ const TodoForm = ({ tasks, setTasks }) => {
       <label htmlFor="taskName" className="form__label">
         New task
       </label>
-      <button className="btn form__btn" disabled={!newTask.name} type="submit">
+      <button
+        className="btn form__btn"
+        aria-label="Submit form"
+        disabled={!newTask.name}
+        type="submit">
         <VscAdd className="btn__icon--large" />
       </button>
     </form>

@@ -22,14 +22,20 @@ const TodoItem = ({ taskIndex, tasks, setTasks }) => {
       }`}>
       <p className="todo-list__name">{tasks[taskIndex].name}</p>
       <div>
-        <button className="btn" onClick={() => toggleIsDone(taskIndex)}>
+        <button
+          className="btn"
+          aria-label="Change status done/undone"
+          onClick={() => toggleIsDone(taskIndex)}>
           <AiOutlineCheck
             className={`btn__icon ${
               !tasks[taskIndex].done && 'btn__icon--hidden'
             }`}
           />
         </button>
-        <button className="btn" onClick={() => removeTask(taskIndex)}>
+        <button
+          className="btn"
+          aria-label="Remove task"
+          onClick={() => removeTask(taskIndex)}>
           <ImBin2 className="btn__icon" />
         </button>
       </div>
