@@ -1,0 +1,28 @@
+.main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f4f4f4;
+}
+
+.main__title {
+	font-size: 2rem;
+	font-weight: 200;
+}
+
+
+.todo-list {
+	list-style: none;
+	width: 400px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0;
+	margin: 2rem 0rem;
+}
+
+
+
+
