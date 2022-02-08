@@ -38,7 +38,6 @@ const TodoItem = ({ taskIndex, tasks, setTasks }) => {
 };
 
 TodoItem.propTypes = {
-  task: PropTypes.object.isRequired,
   tasks: PropTypes.array.isRequired,
   setTasks: PropTypes.func.isRequired,
   taskIndex: PropTypes.number.isRequired
