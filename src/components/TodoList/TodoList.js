@@ -15,8 +15,6 @@ const TodoList = () => {
     Completed: (task) => task.done
   };
 
-  console.log(isActive);
-
   const FILTER_NAMES = Object.keys(FILTER_MAP);
 
   const filteredTasks = filter ? tasks.filter(FILTER_MAP[filter]) : tasks;
