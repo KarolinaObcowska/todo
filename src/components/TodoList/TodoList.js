@@ -19,6 +19,9 @@ const TodoList = () => {
 
   const filteredTasks = filter ? tasks.filter(FILTER_MAP[filter]) : tasks;
 
+  function deleteTasks() {
+    setTasks([]);
+  }
   return (
     <section className="main">
       <h2 className="main__title">Todo List</h2>
@@ -53,6 +56,15 @@ const TodoList = () => {
           <small className="todo-list__alt-text">There are no tasks.</small>
         )}
       </ul>
+      {isActive === 0 && tasks.length > 1 && (
+        <div className="main__btn-group">
+          <button
+            className="btn main__btn main__btn--danger"
+            onClick={() => deleteTasks()}>
+            Delete all tasks
+          </button>
+        </div>
+      )}
     </section>
   );
 };
