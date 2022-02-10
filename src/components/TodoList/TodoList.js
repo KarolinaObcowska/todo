@@ -7,12 +7,15 @@ import './TodoList.css';
 const TodoList = () => {
   const [tasks, setTasks] = useState(TODO);
   const [filter, setFilter] = useState('All');
+  const [isActive, setIsActive] = useState(0);
 
   const FILTER_MAP = {
     All: () => true,
     Active: (task) => !task.done,
     Completed: (task) => task.done
   };
+
+  console.log(isActive);
 
   const FILTER_NAMES = Object.keys(FILTER_MAP);
 
@@ -23,12 +26,18 @@ const TodoList = () => {
       <h2 className="main__title">Todo List</h2>
       <TodoForm tasks={tasks} setTasks={setTasks} />
       <div className="main__search">
-        {FILTER_NAMES.map((name) => (
+        {FILTER_NAMES.map((btnName, index) => (
           <button
-            className="btn search__btn"
-            key={name}
-            onClick={() => setFilter(name)}>
-            {name}
+            className={`btn search__btn ${
+              isActive === index ? 'search__btn--active' : ''
+            }`}
+            key={btnName}
+            id={index}
+            onClick={() => {
+              setFilter(btnName);
+              setIsActive(index);
+            }}>
+            {btnName}
           </button>
         ))}
       </div>
