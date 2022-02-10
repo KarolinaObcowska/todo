@@ -50,9 +50,7 @@ const TodoList = () => {
             />
           ))
         ) : (
-          <small className="todo-list__alt-text">
-            You have not added any tasks yet.
-          </small>
+          <small className="todo-list__alt-text">There are no tasks.</small>
         )}
       </ul>
     </section>
