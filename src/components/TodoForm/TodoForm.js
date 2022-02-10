@@ -22,8 +22,10 @@ const TodoForm = ({ tasks, setTasks }) => {
     e.preventDefault();
     if (isDisabled) {
       setHasError(true);
+      setTimeout(() => {
+        setHasError(false);
+      }, 3000);
     } else {
-      setHasError(false);
       setTasks([newTask, ...tasks]);
       setNewTask(NEW_TODO);
     }
