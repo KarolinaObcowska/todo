@@ -6,6 +6,9 @@ import './TodoForm.css';
 
 const TodoForm = ({ tasks, setTasks }) => {
   const [newTask, setNewTask] = useState(NEW_TODO);
+  const [hasError, setHasError] = useState(false);
+
+  const isDisabled = !newTask.name ? true : false;
 
   function handleChange(e) {
     setNewTask({
@@ -17,11 +20,17 @@ const TodoForm = ({ tasks, setTasks }) => {
 
   function addNewTask(e) {
     e.preventDefault();
-    setTasks([newTask, ...tasks]);
-    setNewTask(NEW_TODO);
+    if (isDisabled) {
+      setHasError(true);
+    } else {
+      setHasError(false);
+      setTasks([newTask, ...tasks]);
+      setNewTask(NEW_TODO);
+    }
   }
+  console.log(hasError);
   return (
-    <form className="main__form form" onSubmit={addNewTask}>
+    <form className="main__form form">
       <input
         id="taskName"
         className="form__input"
@@ -34,12 +43,15 @@ const TodoForm = ({ tasks, setTasks }) => {
         New task
       </label>
       <button
-        className="btn form__btn"
+        className={`btn form__btn ${isDisabled && 'from__btn--disabled'}`}
         aria-label="Submit form"
-        disabled={!newTask.name}
-        type="submit">
+        type="submit"
+        onClick={addNewTask}>
         <VscAdd className="btn__icon--large" />
       </button>
+      {hasError && (
+        <smal className="form__error-msg">Cannot send empty form.</smal>
+      )}
     </form>
   );
 };

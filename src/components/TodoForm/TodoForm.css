@@ -1,11 +1,10 @@
 .form {
-  display: flex;
   width: 432px;
   padding: 0;
   text-align: left;
-  align-items: center;
-  justify-content: space-between;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 
@@ -18,11 +17,10 @@
 }
 
 .form__input {
-  width: 80%;
+  width: 75%;
   height: 100%;
   padding: 1rem 1rem;
   border-radius: 10px 0px 0px 10px;
-  display: inline-block;
   border: none;
   background-color: white;
 }
@@ -39,8 +37,14 @@
   background-color: white;
 }
 
+.form__error-msg {
+  color: red;
+  font-size: 0.8rem;
+  width: 100%;
+  margin: 0.5rem;
+}
 .form__btn {
-  width: 20%;
+  width: 17%;
   height: 100%;
   border-radius: 0px 10px 10px 0px;
   font-weight: 100;
@@ -51,6 +55,10 @@
   background-color: #e1e1e3;
 }
 
+.from__btn--disabled  
+.btn__icon--large {
+  opacity: 0.2;
+}
 .btn__icon--large {
   width: 20px;
   height: 20px;

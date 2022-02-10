@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TODO } from '../../utils/data';
 import TodoItem from '../TodoItem/TodoItem';
 import TodoForm from '../TodoForm/TodoForm';
@@ -7,6 +7,7 @@ import './TodoList.css';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState(TODO);
+
   return (
     <section className="main">
       <h2 className="main__title">Todo List</h2>
