@@ -17,8 +17,7 @@ const TodoForm = ({ tasks, setTasks }) => {
 
   function addNewTask(e) {
     e.preventDefault();
-    tasks.push(newTask);
-    setTasks([...tasks]);
+    setTasks([newTask, ...tasks]);
     setNewTask(NEW_TODO);
   }
   return (
