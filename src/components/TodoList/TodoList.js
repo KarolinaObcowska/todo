@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { TODO } from '../../utils/data';
 import TodoItem from '../TodoItem/TodoItem';
 import TodoForm from '../TodoForm/TodoForm';
@@ -7,18 +6,39 @@ import './TodoList.css';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState(TODO);
+  const [filter, setFilter] = useState('All');
+
+  const FILTER_MAP = {
+    All: () => true,
+    Active: (task) => !task.done,
+    Completed: (task) => task.done
+  };
+
+  const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+  const filteredTasks = filter ? tasks.filter(FILTER_MAP[filter]) : tasks;
 
   return (
     <section className="main">
       <h2 className="main__title">Todo List</h2>
       <TodoForm tasks={tasks} setTasks={setTasks} />
+      <div className="main__search">
+        {FILTER_NAMES.map((name) => (
+          <button
+            className="btn search__btn"
+            key={name}
+            onClick={() => setFilter(name)}>
+            {name}
+          </button>
+        ))}
+      </div>
       <ul className="todo-list">
-        {tasks.length ? (
-          tasks.map((task, index) => (
+        {filteredTasks.length ? (
+          filteredTasks.map((task) => (
             <TodoItem
               key={task.id}
-              taskIndex={index}
               tasks={tasks}
+              task={task}
               setTasks={setTasks}
             />
           ))

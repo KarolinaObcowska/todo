@@ -28,7 +28,7 @@ const TodoForm = ({ tasks, setTasks }) => {
       setNewTask(NEW_TODO);
     }
   }
-  console.log(hasError);
+
   return (
     <form className="main__form form">
       <input
@@ -50,7 +50,7 @@ const TodoForm = ({ tasks, setTasks }) => {
         <VscAdd className="btn__icon--large" />
       </button>
       {hasError && (
-        <smal className="form__error-msg">Cannot send empty form.</smal>
+        <small className="form__error-msg">Cannot send empty form.</small>
       )}
     </form>
   );
